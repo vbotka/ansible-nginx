@@ -1,0 +1,29 @@
+---
+# handlers for vbotka.nginx
+
+- name: enable and start nginx
+  service:
+    name: "{{ nginx_service }}"
+    state: started
+    enabled: yes
+
+- name: disable and stop nginx
+  service:
+    name: "{{ nginx_service }}"
+    state: stopped
+    enabled: no
+
+- name: restart nginx
+  service:
+    name: "{{ nginx_service }}"
+    state: restarted
+  when: nginx_enable
+
+- name: reload nginx
+  service:
+    name: "{{ nginx_service }}"
+    state: reloaded
+  when: nginx_enable
+
+# EOF
+...

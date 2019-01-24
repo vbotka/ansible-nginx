@@ -1,0 +1,14 @@
+---
+
+- name: "packages: Install Linux packages"
+  package:
+    name: "{{ item }}"
+    state: "present"
+  loop: "{{ nginx_packages }}"
+  register: result
+  retries: "{{ nginx_install_retries }}"
+  until: result is succeeded
+  delay: "{{ nginx_install_delay }}"
+
+# EOF
+...

@@ -1,0 +1,37 @@
+---
+
+- name: "packages: Debug"
+  vars:
+    msg: |
+         nginx_install_retries [ {{ nginx_install_retries }} ]
+         nginx_install_delay [ {{ nginx_install_delay }} ]
+         nginx_bsd_install_method [ {{ nginx_bsd_install_method }}]
+         nginx_bsd_use_packages [ {{ nginx_bsd_use_packages }} ]
+         nginx_packages
+         {{ nginx_packages | to_nice_yaml }}
+  debug:
+    msg: "{{ msg.split('\n') }}"
+  when: nginx_debug
+
+- name: "packages: Install BSD packages"
+  pkgng:
+    name: "{{ nginx_packages }}"
+  register: result
+  retries: "{{ nginx_install_retries }}"
+  until: result is succeeded
+  delay: "{{ nginx_install_delay }}"
+  when: nginx_bsd_install_method == "packages"
+
+- name: "packages: Install BSD ports"
+  portinstall:
+    name: "{{ item }}"
+    use_packages: "{{ nginx_bsd_use_packages }}"
+  loop: "{{ nginx_packages }}"
+  register: result
+  retries: "{{ nginx_install_retries }}"
+  until: result is succeeded
+  delay: "{{ nginx_install_delay }}"
+  when: nginx_bsd_install_method == "ports"
+
+# EOF
+...

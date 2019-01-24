@@ -1,0 +1,18 @@
+---
+
+- name: "conf-server: Read {{ item|basename }} configuration"
+  include_vars:
+    file: "{{ item }}"
+
+- name: "conf-server: Configure {{ item|basename }} server in {{ nginx_conf_dir }}/nginx/conf.d"
+  template:
+    src: "server.conf.j2"
+    dest: "{{ nginx_conf_dir }}/nginx/conf.d/{{ item|basename }}.conf"
+    owner: "{{ nginx_conf_owner }}"
+    group: "{{ nginx_conf_group }}"
+    mode: "{{ nginx_conf_mode }}"
+    backup: "{{ nginx_backup_conf }}"
+  notify: reload nginx
+
+# EOF
+...

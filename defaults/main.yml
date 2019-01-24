@@ -1,0 +1,63 @@
+---
+# defaults for vbotka.nginx
+
+nginx_enable: true
+nginx_debug: false
+nginx_backup_conf: no
+
+nginx_supported_bsd_distribution:
+  - FreeBSD
+nginx_supported_linux_distribution:
+  - Ubuntu
+  - RedHat
+
+# packages
+nginx_install_retries: 10
+nginx_install_delay: 5
+
+# servers
+nginx_server_conf_dir: "{{ role_path }}/files/servers"
+
+# nginx.conf
+nginx_conf_path: "{{ nginx_conf_dir }}/nginx/nginx.conf"
+nginx_conf_worker_processes: "auto"
+nginx_conf_error_log: "/var/log/nginx/error.log  warn"
+nginx_conf_access_log: "/var/log/nginx/access.log  main"
+nginx_conf_pid: "/var/run/nginx.pid"
+nginx_conf_worker_connections: "1024"
+nginx_conf_keepalive_timeout: "65"
+nginx_conf_default_type: "application/octet-stream"
+nginx_conf_log_format_main: |
+  '$remote_addr - $remote_user [$time_local] \"$request\"'
+  '$status $body_bytes_sent \"$http_referer\"'
+  '\"$http_user_agent\" \"$http_x_forwarded_for\"'
+
+nginx_conf:
+  - "user  {{ nginx_user }}"
+  - "worker_processes  {{ nginx_conf_worker_processes }}"
+  - "error_log  {{ nginx_conf_error_log }}"
+  - "pid  {{ nginx_conf_pid }}"
+
+nginx_conf_events:
+  - events:
+      - "worker_connections  {{ nginx_conf_worker_connections }}"
+
+nginx_conf_http:
+  - http:
+      - "include  {{ nginx_conf_dir }}/nginx/mime.types"
+      - "default_type  {{ nginx_conf_default_type }}"
+      - "log_format  main  {{ nginx_conf_log_format_main }}"
+      - "access_log  {{ nginx_conf_access_log }}"
+      - "sendfile  on"
+      - "#tcp_nopush  on"
+      - "keepalive_timeout  {{ nginx_conf_keepalive_timeout }}"
+      - "#gzip  on"
+      - "include  {{ nginx_conf_dir }}/nginx/conf.d/*.conf"
+
+# TODO
+# proxy.conf
+# fastcgi.conf
+# mime.types
+
+# EOF
+...

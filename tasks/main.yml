@@ -1,0 +1,21 @@
+---
+# tasks for vbotka.nginx
+
+- import_tasks: vars.yml
+  tags: [nginx-vars, always]
+
+- import_tasks: debug.yml
+  when: nginx_debug
+  tags: [nginx-debug, always]
+
+- import_tasks: packages.yml
+  tags: nginx-packages
+
+- import_tasks: conf.yml
+  tags: nginx-conf
+
+- import_tasks: service.yml
+  tags: nginx-service
+
+# EOF
+...

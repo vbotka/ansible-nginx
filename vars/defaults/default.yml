@@ -1,0 +1,29 @@
+---
+# Default defaults for vbotka.nginx
+
+nginx_service: "nginx"
+nginx_user: "www-data"
+
+nginx_conf_dir: "/etc"
+nginx_conf_owner: "root"
+nginx_conf_group: "root"
+nginx_conf_mode: "0644"
+nginx_conf_dir_mode: "0755"
+
+nginx_data_owner: "www-data"
+nginx_data_group: "root"
+nginx_data_mode: "0640"
+nginx_dir_mode: "0750"
+
+nginx_package: "nginx"
+nginx_packages:
+  - "{{ nginx_package }}"
+
+nginx_default_root_dir: "/usr/share/nginx/html"
+
+nginx_bsd_install_method: "packages"
+# nginx_bsd_install_method: "ports"
+nginx_bsd_use_packages: "yes"
+
+# EOF
+...

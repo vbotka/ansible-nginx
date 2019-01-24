@@ -1,0 +1,18 @@
+---
+
+- name: "service-linux: Enable and Start Nginx"
+  service:
+    name: "{{ nginx_service }}"
+    state: started
+    enabled: yes
+  when: nginx_enable
+
+- name: "service-linux: Disable and Stop Nginx"
+  service:
+    name: "{{ nginx_service }}"
+    state: stopped
+    enabled: no
+  when: not nginx_enable
+
+# EOF
+...

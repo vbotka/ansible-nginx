@@ -1,0 +1,7 @@
+# {{ ansible_managed }}
+{% for item in nginx_conf %}
+{{ item }};
+{% endfor %}
+
+{{ nginx_conf_events | encode_nginx }}
+{{ nginx_conf_http | encode_nginx }}

@@ -1,0 +1,22 @@
+---
+galaxy_info:
+  role_name: nginx
+  author: Vladimir Botka
+  description: Install and configure Nginx.
+  company: https://botka.link
+  github_branch: master
+  license: BSD
+  min_ansible_version: 2.7
+  platforms:
+    - name: FreeBSD
+      versions:
+        - 11.2
+    - name: Ubuntu
+      versions:
+        - bionic
+  galaxy_tags:
+    - freebsd
+    - ubuntu
+    - nginx
+dependencies:
+  - jtyr.config_encoder_filters

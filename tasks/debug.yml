@@ -1,0 +1,49 @@
+---
+
+- name: "NGINX Debug"
+  vars:
+    msg: |
+         ansible_architecture [ {{ ansible_architecture }} ]
+         ansible_os_family [ {{ ansible_os_family }} ]
+         ansible_distribution [ {{ ansible_distribution }} ]
+         ansible_distribution_major_version
+         [ {{ ansible_distribution_major_version }} ]
+         ansible_distribution_version [ {{ ansible_distribution_version }} ]
+         ansible_distribution_release [ {{ ansible_distribution_release }} ]
+         nginx_supported_bsd_distribution
+         {{ nginx_supported_bsd_distribution }}
+         nginx_supported_linux_distribution
+         {{ nginx_supported_linux_distribution }}
+
+         nginx_enable [ {{ nginx_enable }} ]
+         nginx_user [ {{ nginx_user }} ]
+         nginx_backup_conf [ {{ nginx_backup_conf }} ]
+         nginx_service [ {{ nginx_service }} ]
+
+         nginx_conf_dir [ {{ nginx_conf_dir }} ]
+         nginx_conf_path [ {{ nginx_conf_path }} ]
+         nginx_conf_owner [ {{ nginx_conf_owner }} ]
+         nginx_conf_group [ {{ nginx_conf_group }} ]
+         nginx_conf_mode [ {{ nginx_conf_mode }} ]
+         nginx_conf_dir_mode [ {{ nginx_conf_dir_mode }} ]
+         nginx_conf
+         {{ nginx_conf | to_nice_yaml }}
+
+         nginx_install_retries [ {{ nginx_install_retries }} ]
+         nginx_install_delay [ {{ nginx_install_delay }} ]
+         nginx_packages
+         {{ nginx_packages | to_nice_yaml }}
+
+         nginx_data_owner [ {{ nginx_data_owner }} ]
+         nginx_data_group [ {{ nginx_data_group }} ]
+         nginx_data_mode [ {{ nginx_data_mode }} ]
+         nginx_data_dir_mode [ {{ nginx_data_dir_mode }} ]
+
+         nginx_default_root_dir [ {{ nginx_default_root_dir }} ]
+         nginx_server_conf_dir [ {{ nginx_server_conf_dir }} ]
+
+  debug:
+    msg: "{{ msg.split('\n') }}"
+
+# EOF
+...
