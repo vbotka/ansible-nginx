@@ -15,6 +15,9 @@ install:
   # Install ansible
   - pip install ansible
 
+  # Fetch dependencies
+  - ansible-galaxy install -p tests/roles/ jtyr.config_encoder_filters
+
   # Check ansible version
   - ansible --version
 
