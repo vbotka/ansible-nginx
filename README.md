@@ -88,7 +88,7 @@ References
 - [NGINX Wiki](https://www.nginx.com/resources/wiki/)
 - [NGINX Linode Tutorial](https://www.linode.com/docs/web-servers/nginx/)
 - [NGINX Documentation](https://docs.nginx.com/)
-- [NGINX Documentation - Full Example Configuration](https://www.nginx.com/resources/wiki/start/topics/examples/full/
+- [NGINX Documentation - Full Example Configuration](https://www.nginx.com/resources/wiki/start/topics/examples/full/)
 - [How to Install Nginx on FreeBSD 11.2](https://www.digitalocean.com/community/tutorials/how-to-install-nginx-freebsd-11-2)
 - [How To Secure Nginx with Let's Encrypt on FreeBSD](https://www.digitalocean.com/community/tutorials/how-to-secure-nginx-letsencrypt-freebsd)
 - [Config Encoder Filters](https://github.com/jtyr/ansible-config_encoder_filters)

@@ -1,45 +1,6 @@
 ---
-# vars for vbotka.apache
+# vars for vbotka.nginx
 
-# nginx_enable: True
-# nginx_debug: True
-# nginx_ssl: True
-# nginx_php: True
-# nginx_backup_conf: yes
-# nginx_SSLEngine: "on"
-
-# nginx_httpd_conf_ssl_extra_absent:
-#  - "Listen\\s*443"
-# nginx_httpd_conf_ssl_listen:
-#  - { regexp: "Listen ", line: "443"}
-#  - { regexp: "Listen ", line: "10.1.0.10:443"}
-
-# nginx_packages:
-#  - "{{ nginx_package }}"
-#  - "{{ nginx_php_package }}"
-
-# nginx_httpd_conf_modules:
-#  - { module: "socache_shmcb_module", mod: "mod_socache_shmcb.so" }
-#  - { module: "ssl_module", mod: "mod_ssl.so" }
-#  - { module: "php5_module", mod: "libphp5.so" }
-
-# nginx_vhost:
-# - ServerName: "example.net"
-#  DocumentRoot: "/usr/local/www/apache{{ nginx_version }}/data/example.net/"
-#  SSLCertificateFile: >
-#    /usr/local/etc/letsencrypt/live/example.net/fullchain.pem
-#  SSLCertificateKeyFile: >
-#    /usr/local/etc/letsencrypt/live/example.net/privkey.pem
-#  redirect: False
-
-# nginx_directory_blocks:
-#  - Directory: "/usr/local/www/roundcube"
-#    Includefile: "usr-local-www-roundcube.conf"
-#    Conf:
-#      - "Options Indexes FollowSymLinks"
-#      - "DirectoryIndex index.html"
-#      - "AllowOverride All"
-#      - "Require all granted"
 
 # EOF
 ...
