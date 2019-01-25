@@ -1,5 +1,13 @@
 ---
 
+# sites-enabled (deprecated)
+- name: "conf: Link nginx/conf.d to nginx/sites-enabled (deprecated)"
+  file:
+    state: link
+    src: "{{ nginx_conf_dir }}/nginx/conf.d"
+    dest: "{{ nginx_conf_dir }}/nginx/sites-enabled"
+  when: nginx_link_sites_enbled
+
 # nginx/nginx.conf
 - name: "conf: Configure {{ nginx_conf_path }}"
   template:

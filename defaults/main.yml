@@ -17,6 +17,7 @@ nginx_install_delay: 5
 
 # servers
 nginx_server_conf_dir: "{{ role_path }}/files/servers"
+nginx_link_sites_enbled: false
 
 # nginx.conf
 nginx_conf_path: "{{ nginx_conf_dir }}/nginx/nginx.conf"
