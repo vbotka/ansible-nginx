@@ -5,9 +5,10 @@ nginx_enable: true
 nginx_debug: false
 nginx_backup_conf: no
 
-nginx_supported_bsd_distribution:
+# distro
+nginx_supported_bsd_distributions:
   - FreeBSD
-nginx_supported_linux_distribution:
+nginx_supported_linux_distributions:
   - Ubuntu
   - RedHat
 

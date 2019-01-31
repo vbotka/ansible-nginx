@@ -10,10 +10,10 @@
          [ {{ ansible_distribution_major_version }} ]
          ansible_distribution_version [ {{ ansible_distribution_version }} ]
          ansible_distribution_release [ {{ ansible_distribution_release }} ]
-         nginx_supported_bsd_distribution
-         {{ nginx_supported_bsd_distribution }}
-         nginx_supported_linux_distribution
-         {{ nginx_supported_linux_distribution }}
+         nginx_supported_bsd_distributions
+         {{ nginx_supported_bsd_distributions }}
+         nginx_supported_linux_distributions
+         {{ nginx_supported_linux_distributions }}
 
          nginx_enable [ {{ nginx_enable }} ]
          nginx_user [ {{ nginx_user }} ]

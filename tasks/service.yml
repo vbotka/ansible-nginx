@@ -2,11 +2,11 @@
 
 - name: "service: Service BSD"
   include_tasks: service-bsd.yml
-  when: ansible_distribution in nginx_supported_bsd_distribution
+  when: ansible_distribution in nginx_supported_bsd_distributions
 
 - name: "service: Service Linux"
   include_tasks: service-linux.yml
-  when: ansible_distribution in nginx_supported_linux_distribution
+  when: ansible_distribution in nginx_supported_linux_distributions
 
 # EOF
 ...

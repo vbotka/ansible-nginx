@@ -2,11 +2,11 @@
 
 - name: "packages: Install BSD packages"
   include_tasks: packages-bsd.yml
-  when: ansible_distribution in nginx_supported_bsd_distribution
+  when: ansible_distribution in nginx_supported_bsd_distributions
 
 - name: "packages: Install Linux packages"
   include_tasks: packages-linux.yml
-  when: ansible_distribution in nginx_supported_linux_distribution
+  when: ansible_distribution in nginx_supported_linux_distributions
 
 # EOF
 ...
