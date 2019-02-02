@@ -21,9 +21,10 @@
   notify: reload nginx
 
 # nginx/conf.d
-- name: "conf: Find server files in {{ nginx_server_conf_dir }}"
+- name: "conf: Find config files in {{ nginx_server_conf_dir }}"
   find:
     paths: "{{ nginx_server_conf_dir }}"
+    patterns: "*.conf"
   delegate_to: localhost
   register: result
 

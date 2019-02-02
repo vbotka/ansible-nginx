@@ -4,10 +4,11 @@
   include_vars:
     file: "{{ item }}"
 
-- name: "conf-server: Configure {{ item|basename }} server in {{ nginx_conf_dir }}/nginx/conf.d"
+- name: "conf-server: Configure {{ (item|basename|splitext)[0] }}
+                      server in {{ nginx_conf_dir }}/nginx/conf.d"
   template:
     src: "server.conf.j2"
-    dest: "{{ nginx_conf_dir }}/nginx/conf.d/{{ item|basename }}.conf"
+    dest: "{{ nginx_conf_dir }}/nginx/conf.d/{{ item|basename }}"
     owner: "{{ nginx_conf_owner }}"
     group: "{{ nginx_conf_group }}"
     mode: "{{ nginx_conf_mode }}"
