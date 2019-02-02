@@ -40,11 +40,9 @@ nginx_conf:
   - "error_log  {{ nginx_conf_error_log }}"
   - "pid  {{ nginx_conf_pid }}"
 
-nginx_conf_events:
+nginx_conf_http:
   - events:
       - "worker_connections  {{ nginx_conf_worker_connections }}"
-
-nginx_conf_http:
   - http:
       - "include  {{ nginx_conf_dir }}/nginx/mime.types"
       - "default_type  {{ nginx_conf_default_type }}"
@@ -55,11 +53,6 @@ nginx_conf_http:
       - "keepalive_timeout  {{ nginx_conf_keepalive_timeout }}"
       - "#gzip  on"
       - "include  {{ nginx_conf_dir }}/nginx/conf.d/*.conf"
-
-# TODO
-# proxy.conf
-# fastcgi.conf
-# mime.types
 
 # EOF
 ...
