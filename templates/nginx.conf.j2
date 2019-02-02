@@ -1,6 +1,6 @@
 # {{ ansible_managed }}
-{% for item in nginx_conf %}
+{% for item in nginx_conf_simple %}
 {{ item }};
 {% endfor %}
 
-{{ nginx_conf_http | encode_nginx }}
+{{ nginx_conf_block | encode_nginx }}

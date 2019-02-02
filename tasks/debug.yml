@@ -26,8 +26,10 @@
          nginx_conf_group [ {{ nginx_conf_group }} ]
          nginx_conf_mode [ {{ nginx_conf_mode }} ]
          nginx_conf_dir_mode [ {{ nginx_conf_dir_mode }} ]
-         nginx_conf
-         {{ nginx_conf | to_nice_yaml }}
+         nginx_conf_simple
+         {{ nginx_conf_simple | to_nice_yaml }}
+         nginx_conf_block
+         {{ nginx_conf_block | to_nice_yaml }}
 
          nginx_install_retries [ {{ nginx_install_retries }} ]
          nginx_install_delay [ {{ nginx_install_delay }} ]

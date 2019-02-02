@@ -34,13 +34,13 @@ nginx_conf_log_format_main: |
   '$status $body_bytes_sent \"$http_referer\"'
   '\"$http_user_agent\" \"$http_x_forwarded_for\"'
 
-nginx_conf:
+nginx_conf_simple:
   - "user  {{ nginx_user }}"
   - "worker_processes  {{ nginx_conf_worker_processes }}"
   - "error_log  {{ nginx_conf_error_log }}"
   - "pid  {{ nginx_conf_pid }}"
 
-nginx_conf_http:
+nginx_conf_block:
   - events:
       - "worker_connections  {{ nginx_conf_worker_connections }}"
   - http:
