@@ -85,12 +85,13 @@ ansible_perl_interpreter=/usr/local/bin/perl
 References
 ----------
 
-- [NGINX Wiki](https://www.nginx.com/resources/wiki/)
-- [NGINX Linode Tutorial](https://www.linode.com/docs/web-servers/nginx/)
-- [NGINX Documentation](https://docs.nginx.com/)
-- [NGINX Documentation - Full Example Configuration](https://www.nginx.com/resources/wiki/start/topics/examples/full/)
-- [How to Install Nginx on FreeBSD 11.2](https://www.digitalocean.com/community/tutorials/how-to-install-nginx-freebsd-11-2)
-- [How To Secure Nginx with Let's Encrypt on FreeBSD](https://www.digitalocean.com/community/tutorials/how-to-secure-nginx-letsencrypt-freebsd)
+- [nginx.org Documentation](http://nginx.org/en/docs/)
+- [nginx.com Wiki](https://www.nginx.com/resources/wiki/)
+- [nginx.com Linode Tutorial](https://www.linode.com/docs/web-servers/nginx/)
+- [nginx.com Documentation](https://docs.nginx.com/)
+- [nginx.com Documentation - Full Example Configuration](https://www.nginx.com/resources/wiki/start/topics/examples/full/)
+- [digitalocean.com How to Install Nginx on FreeBSD 11.2](https://www.digitalocean.com/community/tutorials/how-to-install-nginx-freebsd-11-2)
+- [digitalocean.com How To Secure Nginx with Let's Encrypt on FreeBSD](https://www.digitalocean.com/community/tutorials/how-to-secure-nginx-letsencrypt-freebsd)
 - [Config Encoder Filters](https://github.com/jtyr/ansible-config_encoder_filters)
 - [FreeBSD Nginx performance](https://devinteske.com/wp/freebsd-nginx-performance/)
 
