@@ -1,0 +1,13 @@
+---
+
+- name: "assert: Check supported distro."
+  fail:
+    msg: "[ERROR] Unsupported distribution. Create vars on your own,
+          or set 'nginx_try_linux_defaults: true'."
+  when:
+    - not ansible_distribution in nginx_supported_bsd_distributions
+    - not ansible_distribution in nginx_supported_linux_distributions
+    - not nginx_try_linux_defaults
+
+# EOF
+...

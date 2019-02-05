@@ -1,12 +1,30 @@
 ---
 
 # sites-enabled (deprecated)
-- name: "conf: Link nginx/conf.d to nginx/sites-enabled (deprecated)"
+- name: "conf: Stat nginx/sites-enabled (deprecated)"
+  stat:
+    path: "{{ nginx_conf_dir }}/nginx/sites-enabled"
+  register: result
+  when: nginx_link_sites_enbled
+
+# sites-enabled (deprecated)
+- name: "conf: Move nginx/sites-enabled (deprecated) to
+                    nginx/sites-enabled.orig"
+  command: "mv {{ nginx_conf_dir }}/nginx/sites-enabled
+               {{ nginx_conf_dir }}/nginx/sites-enabled.orig"
+  when:
+    - nginx_link_sites_enbled
+    - result.stat.exists and result.stat.isdir|default('false')
+
+# sites-enabled (deprecated)
+- name: "conf: Link nginx/conf.d to nginx/sites-enabled"
   file:
     state: link
     src: "{{ nginx_conf_dir }}/nginx/conf.d"
     dest: "{{ nginx_conf_dir }}/nginx/sites-enabled"
-  when: nginx_link_sites_enbled
+  when:
+    - nginx_link_sites_enbled
+    - not ansible_check_mode
 
 # nginx/nginx.conf
 - name: "conf: Configure {{ nginx_conf_path }}"

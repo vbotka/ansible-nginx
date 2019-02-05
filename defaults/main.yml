@@ -11,6 +11,7 @@ nginx_supported_bsd_distributions:
 nginx_supported_linux_distributions:
   - Ubuntu
   - RedHat
+nginx_try_linux_defaults: false
 
 # packages
 nginx_install_retries: 10

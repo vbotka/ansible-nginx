@@ -6,7 +6,8 @@
 
 - name: "service: Service Linux"
   include_tasks: service-linux.yml
-  when: ansible_distribution in nginx_supported_linux_distributions
+  when: ansible_distribution in nginx_supported_linux_distributions or
+        nginx_try_linux_defaults
 
 # EOF
 ...

@@ -1,6 +1,9 @@
 ---
 # tasks for vbotka.nginx
 
+- import_tasks: assert.yml
+  tags: [nginx-assert, always]
+
 - import_tasks: vars.yml
   tags: [nginx-vars, always]
 
