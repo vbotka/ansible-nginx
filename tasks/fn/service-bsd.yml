@@ -1,6 +1,6 @@
 ---
 
-- name: "service-bsd: Enable and Start Nginx"
+- name: "service:bsd: Enable and Start Nginx"
   lineinfile:
     dest: "/etc/rc.conf"
     regexp: "^{{ nginx_service }}_enable"
@@ -9,7 +9,7 @@
   notify: enable and start nginx
   when: nginx_enable
 
-- name: "service-bsd: Disable and Stop Nginx"
+- name: "service:bsd: Disable and Stop Nginx"
   lineinfile:
     dest: "/etc/rc.conf"
     regexp: "^{{ nginx_service }}_enable"

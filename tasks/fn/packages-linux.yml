@@ -1,6 +1,6 @@
 ---
 
-- name: "packages-linux: Install Linux packages"
+- name: "packages:linux: Install Linux packages"
   package:
     name: "{{ item }}"
     state: "present"

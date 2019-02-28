@@ -1,6 +1,10 @@
 ---
 # FreeBSD defaults for vbotka.nginx
 
+nginx_bsd_install_method: "packages"
+# nginx_bsd_install_method: "ports"
+nginx_bsd_use_packages: "yes"
+
 nginx_service: "nginx"
 nginx_user: "www"
 
@@ -21,9 +25,12 @@ nginx_packages:
 
 nginx_default_root_dir: "/usr/local/www"
 
-nginx_bsd_install_method: "packages"
-# nginx_bsd_install_method: "ports"
-nginx_bsd_use_packages: "yes"
+nginx_files:
+  - {path: "{{ nginx_conf_dir }}/nginx/conf.d",
+     owner: "{{ nginx_conf_owner }}",
+     group: "{{ nginx_conf_group }}",
+     mode: "{{ nginx_conf_dir_mode }}",
+     state: directory}
 
 # EOF
 ...

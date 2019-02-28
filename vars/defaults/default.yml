@@ -1,6 +1,10 @@
 ---
 # Default defaults for vbotka.nginx
 
+nginx_bsd_install_method: "packages"
+# nginx_bsd_install_method: "ports"
+nginx_bsd_use_packages: "yes"
+
 nginx_service: "nginx"
 nginx_user: "www-data"
 
@@ -21,9 +25,7 @@ nginx_packages:
 
 nginx_default_root_dir: "/usr/share/nginx/html"
 
-nginx_bsd_install_method: "packages"
-# nginx_bsd_install_method: "ports"
-nginx_bsd_use_packages: "yes"
+nginx_files: []
 
 # EOF
 ...

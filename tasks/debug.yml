@@ -44,6 +44,8 @@
 
          nginx_default_root_dir [ {{ nginx_default_root_dir }} ]
          nginx_server_conf_dir [ {{ nginx_server_conf_dir }} ]
+         nginx_files
+         {{ nginx_files | to_nice_yaml }}
 
   debug:
     msg: "{{ msg.split('\n') }}"

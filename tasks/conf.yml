@@ -1,8 +1,12 @@
 ---
 
+# files
+- name: "conf: Configure directories and files"
+  include_tasks: fn/conf-files.yml
+
 # nginx/sites-enabled (deprecated)
 - name: "conf: Link conf.d to sites-enabled"
-  include_tasks: conf-sites-enabled.yml
+  include_tasks: fn/conf-sites-enabled.yml
   when: nginx_link_sites_enbled
 
 # nginx/nginx.conf
@@ -31,7 +35,7 @@
   when: nginx_debug
 
 - name: "conf: Configure servers in {{ nginx_conf_dir }}/nginx/conf.d"
-  include_tasks: conf-server.yml
+  include_tasks: fn/conf-server.yml
   loop: "{{ result | json_query('files[].path') }}"
 
 # EOF

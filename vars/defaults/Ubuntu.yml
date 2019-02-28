@@ -21,5 +21,7 @@ nginx_packages:
 
 nginx_default_root_dir: "/usr/share/nginx/html"
 
+nginx_files: []
+
 # EOF
 ...

@@ -1,18 +1,18 @@
 ---
 
 # sites-enabled (deprecated)
-- name: "conf-sites-enabled: Stat sites-enabled (deprecated)"
+- name: "conf:sites-enabled: Stat sites-enabled (deprecated)"
   stat:
     path: "{{ nginx_conf_dir }}/nginx/sites-enabled"
   register: result
 
-- name: "conf-sites-enabled: Move sites-enabled (deprecated) to
+- name: "conf:sites-enabled: Move sites-enabled (deprecated) to
                              sites-enabled.orig"
   command: "mv {{ nginx_conf_dir }}/nginx/sites-enabled
                {{ nginx_conf_dir }}/nginx/sites-enabled.orig"
   when: result.stat.exists and result.stat.isdir|default('false')
 
-- name: "conf-sites-enabled: Link conf.d to sites-enabled"
+- name: "conf:sites-enabled: Link conf.d to sites-enabled"
   file:
     state: link
     src: "conf.d"

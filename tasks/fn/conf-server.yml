@@ -1,10 +1,10 @@
 ---
 
-- name: "conf-server: Read {{ item|basename }} configuration"
+- name: "conf:server: Read {{ item|basename }} configuration"
   include_vars:
     file: "{{ item }}"
 
-- name: "conf-server: Configure {{ (item|basename|splitext)[0] }}
+- name: "conf:server: Configure {{ (item|basename|splitext)[0] }}
                       server in {{ nginx_conf_dir }}/nginx/conf.d"
   template:
     src: "server.conf.j2"
