@@ -25,7 +25,7 @@
 - name: "conf: Find config files in {{ nginx_server_conf_dir }}"
   find:
     paths: "{{ nginx_server_conf_dir }}"
-    patterns: "*.conf"
+    patterns: "{{ nginx_server_conf_file_patterns }}"
   delegate_to: localhost
   register: result
 
