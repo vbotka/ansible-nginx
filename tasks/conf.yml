@@ -42,7 +42,6 @@
     - name: "conf: Set variables for al_include_confd_vars_list"
       set_fact:
         al_include_confd_dir: "{{ nginx_server_conf_dir }}"
-        al_debug: false
         al_include_confd_vars_list_plain: false
         al_include_confd_vars_list_fname: true
     - name: "conf: Include al_include_confd_vars_list"
