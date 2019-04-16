@@ -1,23 +1,20 @@
-nginx
-=====
+# nginx
 
 [![Build Status](https://travis-ci.org/vbotka/ansible-nginx.svg?branch=master)](https://travis-ci.org/vbotka/ansible-nginx)
 
 [Ansible role.](https://galaxy.ansible.com/vbotka/nginx/) Install and configure Nginx.
 
 
-Requirements
-------------
+## Requirements
 
 - [config_encoder_filters](https://galaxy.ansible.com/jtyr/config_encoder_filters)
 
 
-Variables
----------
+## Variables
 
+(TBD) Review defaults and examples in vars.
 
-Workflow
---------
+## Workflow
 
 1) Change shell to /bin/sh.
 
@@ -82,8 +79,7 @@ ansible_perl_interpreter=/usr/local/bin/perl
    - https://www.ssllabs.com
 		
 
-References
-----------
+## References
 
 - [nginx.org Documentation](http://nginx.org/en/docs/)
 - [nginx.com Wiki](https://www.nginx.com/resources/wiki/)
@@ -96,13 +92,11 @@ References
 - [FreeBSD Nginx performance](https://devinteske.com/wp/freebsd-nginx-performance/)
 
 
-License
--------
+## License
 
 [![license](https://img.shields.io/badge/license-BSD-red.svg)](https://www.freebsd.org/doc/en/articles/bsdl-gpl/article.html)
 
 
-Author Information
-------------------
+## Author Information
 
 [Vladimir Botka](https://botka.link)
