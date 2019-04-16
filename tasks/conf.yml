@@ -42,8 +42,7 @@
     - name: "conf: Set variables for al_include_confd_vars_list"
       set_fact:
         al_include_confd_dir: "{{ nginx_server_conf_dir }}"
-        al_include_confd_vars_list_plain: false
-        al_include_confd_vars_list_fname: true
+        al_include_confd_vars_list_type: "fname"
     - name: "conf: Include al_include_confd_vars_list"
       include_role:
         name: vbotka.ansible_lib
