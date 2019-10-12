@@ -16,6 +16,8 @@ nginx_try_linux_defaults: false
 # packages
 nginx_install_retries: 10
 nginx_install_delay: 5
+nginx_install_update_cache: false
+nginx_install_cache_valid_time: 3600  # apt only
 
 # servers
 nginx_server_conf_dir: "{{ role_path }}/files/servers"

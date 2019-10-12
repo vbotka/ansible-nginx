@@ -1,5 +1,19 @@
 ---
 
+- name: "packages:linux: Update cache RH"      #  Note 1
+  command: yum makecache
+  when:
+    - nginx_install_update_cache|bool
+    - ansible_os_family == "RedHat"
+
+- name: "packages:linux: Update cache Debian"  #  Note 2
+  apt:
+    update_cache: "{{ nginx_install_update_cache }}"
+    cache_valid_time: "{{ nginx_install_cache_valid_time }}"
+  when:
+    - nginx_install_update_cache|bool
+    - ansible_os_family == "Debian"
+
 - name: "packages:linux: Install Linux packages"
   package:
     name: "{{ item }}"
@@ -9,6 +23,15 @@
   retries: "{{ nginx_install_retries }}"
   until: result is succeeded
   delay: "{{ nginx_install_delay }}"
+
+#    Notes
+#
+# 1) Module yum is not capable of updating cache only. See:
+#    yum module requires package name for cache update #33461
+#    https://github.com/ansible/ansible/issues/33461
+#    (closed as notabug)
+#
+# 2) Module apt with update_cache:true is not idempotent
 
 # EOF
 ...
