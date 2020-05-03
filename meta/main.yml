@@ -20,5 +20,6 @@ galaxy_info:
     - freebsd
     - ubuntu
     - nginx
-dependencies: []
+dependencies:
+  - jtyr.config_encoder_filters
 ...
