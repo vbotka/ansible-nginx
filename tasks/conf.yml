@@ -7,7 +7,7 @@
 # nginx/sites-enabled (deprecated)
 - name: "conf: Link conf.d to sites-enabled"
   include_tasks: fn/conf-sites-enabled.yml
-  when: nginx_link_sites_enbled
+  when: nginx_link_sites_enbled|bool
 
 # nginx/nginx.conf
 - name: "conf: Configure {{ nginx_conf_path }}"
@@ -48,7 +48,7 @@
         name: vbotka.ansible_lib
         tasks_from: al_include_confd_vars_list
     - name: "conf: Debug al_include_confd_vars_list"
-      when: nginx_debug
+      when: nginx_debug|bool
       debug:
         var: item
       loop: "{{ al_include_confd_vars_list }}"

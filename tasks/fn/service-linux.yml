@@ -4,15 +4,15 @@
   service:
     name: "{{ nginx_service }}"
     state: started
-    enabled: yes
-  when: nginx_enable
+    enabled: true
+  when: nginx_enable|bool
 
 - name: "service:linux: Disable and Stop Nginx"
   service:
     name: "{{ nginx_service }}"
     state: stopped
-    enabled: no
-  when: not nginx_enable
+    enabled: false
+  when: not nginx_enable|bool
 
 # EOF
 ...

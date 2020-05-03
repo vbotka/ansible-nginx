@@ -3,7 +3,7 @@
 
 nginx_enable: true
 nginx_debug: false
-nginx_backup_conf: no
+nginx_backup_conf: false
 
 # distro
 nginx_supported_bsd_distributions:

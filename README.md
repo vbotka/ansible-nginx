@@ -4,6 +4,8 @@
 
 [Ansible role.](https://galaxy.ansible.com/vbotka/nginx/) Install and configure Nginx.
 
+Please feel free to [share your feedback and report issues](https://github.com/vbotka/ansible-nginx/issues). Contributions are welcome.
+
 
 ## Requirements
 
@@ -12,30 +14,30 @@
 
 ## Variables
 
-(TBD) Review defaults and examples in vars.
+Review defaults and examples in vars.
+
 
 ## Workflow
 
-1) Change shell to /bin/sh.
+1) Change shell to /bin/sh
 
 ```
-# ansible webserver -e 'ansible_shell_type=csh ansible_shell_executable=/bin/csh' -a 'sudo pw usermod freebsd -s /bin/sh'
+shell> ansible webserver -e 'ansible_shell_type=csh ansible_shell_executable=/bin/csh' -a 'sudo pw usermod freebsd -s /bin/sh'
 ```
 
-2) Install role.
+2) Install role
 
 ```
-# ansible-galaxy install vbotka.nginx
+shell> ansible-galaxy install vbotka.nginx
 ```
 
-3) Fit variables.
+3) Change variables
 
 - Review *defaults*
 
 - Review OS specific variables in *vars/defaults*
 
-- Optionaly create custom OS specific variables in *vars/*. See
-  *tasks/vars.yml*
+- Optionaly create custom OS specific variables in *vars/*. See *tasks/vars.yml*
 
 - Customize other variables in *vars/main.yml*
 
@@ -43,19 +45,19 @@
 
   - default: "{{ role_path }}/files/servers"
   - See *tasks/conf.yml*, *templates/server.conf.j2* and
-  - Filter [encode_nginx](https://github.com/jtyr/ansible-config_encoder_filters#encode_nginx).
+  - Filter [encode_nginx](https://github.com/jtyr/ansible-config_encoder_filters#encode_nginx)
 
-4) Create playbook and inventory.
+4) Create playbook and inventory
 
 ```
-# cat nginx.yml
+shell> cat nginx.yml
 - hosts: webserver
   roles:
     - vbotka.nginx
 ```
 
 ```
-# cat hosts
+shell> cat hosts
 [webserver]
 <webserver-ip-or-fqdn>
 [webserver:vars]
@@ -67,13 +69,13 @@ ansible_python_interpreter=/usr/local/bin/python3.6
 ansible_perl_interpreter=/usr/local/bin/perl
 ```
 
-5) Install and configure Nginx.
+5) Install and configure Nginx
 
 ```
-# ansible-playbook nginx.yml
+shell> ansible-playbook nginx.yml
 ```
 
-6) Consider to test the webserver
+6) Test the webserver
 
    - http://validator.w3.org
    - https://www.ssllabs.com

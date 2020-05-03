@@ -3,20 +3,20 @@
 - name: "service:bsd: Enable and Start Nginx"
   lineinfile:
     dest: "/etc/rc.conf"
-    regexp: "^{{ nginx_service }}_enable"
+    regexp: "^\\s*{{ nginx_service }}_enable\\s*=\\s*(.*)$"
     line: "{{ nginx_service }}_enable=\"YES\""
     backup: "{{ nginx_backup_conf }}"
   notify: enable and start nginx
-  when: nginx_enable
+  when: nginx_enable|bool
 
 - name: "service:bsd: Disable and Stop Nginx"
   lineinfile:
     dest: "/etc/rc.conf"
-    regexp: "^{{ nginx_service }}_enable"
+    regexp: "^\\s*{{ nginx_service }}_enable\\s*=\\s*(.*)$"
     line: "{{ nginx_service }}_enable=\"NO\""
     backup: "{{ nginx_backup_conf }}"
   notify: disable and stop nginx
-  when: not nginx_enable
+  when: not nginx_enable|bool
 
 # EOF
 ...

@@ -8,7 +8,7 @@
   tags: [nginx-vars, always]
 
 - import_tasks: debug.yml
-  when: nginx_debug
+  when: nginx_debug|bool
   tags: [nginx-debug, always]
 
 - import_tasks: packages.yml

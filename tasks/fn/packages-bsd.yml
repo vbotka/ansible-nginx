@@ -3,12 +3,12 @@
 - name: "packages:bsd: Debug"
   vars:
     msg: |
-         nginx_install_retries [ {{ nginx_install_retries }} ]
-         nginx_install_delay [ {{ nginx_install_delay }} ]
-         nginx_bsd_install_method [ {{ nginx_bsd_install_method }}]
-         nginx_bsd_use_packages [ {{ nginx_bsd_use_packages }} ]
+         nginx_install_retries [{{ nginx_install_retries }}]
+         nginx_install_delay [{{ nginx_install_delay }}]
+         nginx_bsd_install_method [{{ nginx_bsd_install_method }}]
+         nginx_bsd_use_packages [{{ nginx_bsd_use_packages }}]
          nginx_packages
-         {{ nginx_packages | to_nice_yaml }}
+         {{ nginx_packages|to_nice_yaml }}
   debug:
     msg: "{{ msg.split('\n') }}"
   when: nginx_debug

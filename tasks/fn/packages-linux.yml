@@ -1,7 +1,7 @@
 ---
 
 - name: "packages:linux: Update cache RH"      #  Note 1
-  command: yum makecache
+  command: yum makecache  # noqa 303
   when:
     - nginx_install_update_cache|bool
     - ansible_os_family == "RedHat"
