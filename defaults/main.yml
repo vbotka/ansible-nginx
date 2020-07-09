@@ -1,6 +1,7 @@
 ---
 # defaults for vbotka.nginx
 
+nginx_install: true
 nginx_enable: true
 nginx_debug: false
 nginx_backup_conf: false
@@ -22,7 +23,7 @@ nginx_install_cache_valid_time: 3600  # apt only
 # servers
 nginx_server_conf_dir: "{{ role_path }}/files/servers"
 nginx_server_conf_file_patterns: "*"
-nginx_link_sites_enbled: false
+nginx_link_sites_enabled: false
 
 # nginx.conf
 nginx_conf_path: "{{ nginx_conf_dir }}/nginx/nginx.conf"

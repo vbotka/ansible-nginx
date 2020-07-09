@@ -10,8 +10,8 @@
          nginx_packages
          {{ nginx_packages|to_nice_yaml }}
   debug:
-    msg: "{{ msg.split('\n') }}"
-  when: nginx_debug
+    msg: "{{ msg.split('\n')[:-1] }}"
+  when: nginx_debug|bool
 
 - name: "packages:bsd: Install BSD packages"
   pkgng:

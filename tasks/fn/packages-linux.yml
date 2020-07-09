@@ -17,7 +17,7 @@
 - name: "packages:linux: Install Linux packages"
   package:
     name: "{{ item }}"
-    state: "present"
+    state: present
   loop: "{{ nginx_packages }}"
   register: result
   retries: "{{ nginx_install_retries }}"

@@ -7,7 +7,7 @@
 # nginx/sites-enabled (deprecated)
 - name: "conf: Link conf.d to sites-enabled"
   include_tasks: fn/conf-sites-enabled.yml
-  when: nginx_link_sites_enbled|bool
+  when: nginx_link_sites_enabled|bool
 
 # nginx/nginx.conf
 - name: "conf: Configure {{ nginx_conf_path }}"

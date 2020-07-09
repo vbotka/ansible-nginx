@@ -21,7 +21,7 @@
          nginx_user [{{ nginx_user }}]
          nginx_backup_conf [{{ nginx_backup_conf }}]
          nginx_service [{{ nginx_service }}]
-         nginx_link_sites_enbled [{{ nginx_link_sites_enbled }}]
+         nginx_link_sites_enabled [{{ nginx_link_sites_enabled }}]
 
          nginx_conf_dir [{{ nginx_conf_dir }}]
          nginx_conf_path [{{ nginx_conf_path }}]
@@ -34,6 +34,7 @@
          nginx_conf_block
          {{ nginx_conf_block|to_nice_yaml }}
 
+         nginx_install [{{ nginx_install }}]
          nginx_install_update_cache [{{ nginx_install_update_cache }}]
          nginx_install_cache_valid_time [{{ nginx_install_cache_valid_time }}]
          nginx_install_retries [{{ nginx_install_retries }}]
@@ -52,7 +53,7 @@
          {{ nginx_files|to_nice_yaml }}
 
   debug:
-    msg: "{{ msg.split('\n') }}"
+    msg: "{{ msg.split('\n')[:-1] }}"
 
 # EOF
 ...

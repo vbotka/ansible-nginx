@@ -12,6 +12,7 @@
   tags: [nginx-debug, always]
 
 - import_tasks: packages.yml
+  when: nginx_install|bool
   tags: nginx-packages
 
 - import_tasks: conf.yml
