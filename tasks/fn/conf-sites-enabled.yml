@@ -10,7 +10,7 @@
                              sites-enabled.orig"
   command: "mv {{ nginx_conf_dir }}/nginx/sites-enabled
                {{ nginx_conf_dir }}/nginx/sites-enabled.orig"
-  when: result.stat.exists and result.stat.isdir|default('false')
+  when: result.stat.exists and result.stat.isdir|default(false)
 
 - name: "conf:sites-enabled: Link conf.d to sites-enabled"
   file:
