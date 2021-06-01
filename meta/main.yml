@@ -22,4 +22,6 @@ galaxy_info:
     - nginx
 dependencies:
   - jtyr.config_encoder_filters
+collections:
+  - community.general
 ...

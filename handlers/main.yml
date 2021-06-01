@@ -2,25 +2,25 @@
 # handlers for vbotka.nginx
 
 - name: enable and start nginx
-  service:
+  ansible.builtin.service:
     name: "{{ nginx_service }}"
     state: started
     enabled: true
 
 - name: disable and stop nginx
-  service:
+  ansible.builtin.service:
     name: "{{ nginx_service }}"
     state: stopped
     enabled: false
 
 - name: restart nginx
-  service:
+  ansible.builtin.service:
     name: "{{ nginx_service }}"
     state: restarted
   when: nginx_enable|bool
 
 - name: reload nginx
-  service:
+  ansible.builtin.service:
     name: "{{ nginx_service }}"
     state: reloaded
   when: nginx_enable|bool

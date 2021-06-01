@@ -2,28 +2,28 @@
 
 - name: "packages:bsd: Debug"
   vars:
-    msg: |
-         nginx_install_retries [{{ nginx_install_retries }}]
-         nginx_install_delay [{{ nginx_install_delay }}]
+    msg: |-
          nginx_bsd_install_method [{{ nginx_bsd_install_method }}]
          nginx_bsd_use_packages [{{ nginx_bsd_use_packages }}]
+         nginx_install_retries [{{ nginx_install_retries }}]
+         nginx_install_delay [{{ nginx_install_delay }}]
          nginx_packages
          {{ nginx_packages|to_nice_yaml }}
   debug:
-    msg: "{{ msg.split('\n')[:-1] }}"
+    msg: "{{ msg.split('\n') }}"
   when: nginx_debug|bool
 
 - name: "packages:bsd: Install BSD packages"
-  pkgng:
+  community.general.pkgng:
     name: "{{ nginx_packages }}"
   register: result
   retries: "{{ nginx_install_retries }}"
   until: result is succeeded
   delay: "{{ nginx_install_delay }}"
-  when: nginx_bsd_install_method == "packages"
+  when: nginx_bsd_install_method|lower == "packages"
 
 - name: "packages:bsd: Install BSD ports"
-  portinstall:
+  community.general.portinstall:
     name: "{{ item }}"
     use_packages: "{{ nginx_bsd_use_packages }}"
   loop: "{{ nginx_packages }}"
@@ -31,7 +31,7 @@
   retries: "{{ nginx_install_retries }}"
   until: result is succeeded
   delay: "{{ nginx_install_delay }}"
-  when: nginx_bsd_install_method == "ports"
+  when: nginx_bsd_install_method|lower == "ports"
 
 # EOF
 ...

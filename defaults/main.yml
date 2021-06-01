@@ -27,13 +27,13 @@ nginx_link_sites_enabled: false
 
 # nginx.conf
 nginx_conf_path: "{{ nginx_conf_dir }}/nginx/nginx.conf"
-nginx_conf_worker_processes: "auto"
-nginx_conf_error_log: "/var/log/nginx/error.log  warn"
-nginx_conf_access_log: "/var/log/nginx/access.log  main"
-nginx_conf_pid: "/var/run/nginx.pid"
+nginx_conf_worker_processes: auto
+nginx_conf_error_log: /var/log/nginx/error.log  warn
+nginx_conf_access_log: /var/log/nginx/access.log  main
+nginx_conf_pid: /var/run/nginx.pid
 nginx_conf_worker_connections: "1024"
 nginx_conf_keepalive_timeout: "65"
-nginx_conf_default_type: "application/octet-stream"
+nginx_conf_default_type: application/octet-stream
 nginx_conf_log_format_main: |
   '$remote_addr - $remote_user [$time_local] \"$request\"'
   '$status $body_bytes_sent \"$http_referer\"'

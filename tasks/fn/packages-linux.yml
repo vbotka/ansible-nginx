@@ -1,13 +1,14 @@
 ---
 
-- name: "packages:linux: Update cache RH"      #  Note 1
-  command: yum makecache  # noqa 303
+- name: "packages:linux: Update cache RH"      # Note 1
+  command:                                     # noqa 303
+    cmd: yum makecache
   when:
     - nginx_install_update_cache|bool
     - ansible_os_family == "RedHat"
 
-- name: "packages:linux: Update cache Debian"  #  Note 2
-  apt:
+- name: "packages:linux: Update cache Debian"  # Note 2
+  ansible.builtin.apt:
     update_cache: "{{ nginx_install_update_cache }}"
     cache_valid_time: "{{ nginx_install_cache_valid_time }}"
   when:
@@ -15,7 +16,7 @@
     - ansible_os_family == "Debian"
 
 - name: "packages:linux: Install Linux packages"
-  package:
+  ansible.builtin.package:
     name: "{{ item }}"
     state: present
   loop: "{{ nginx_packages }}"

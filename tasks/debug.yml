@@ -2,7 +2,7 @@
 
 - name: "NGINX Debug"
   vars:
-    msg: |
+    msg: |-
          ansible_architecture [{{ ansible_architecture }}]
          ansible_os_family [{{ ansible_os_family }}]
          ansible_distribution [{{ ansible_distribution }}]
@@ -53,7 +53,7 @@
          {{ nginx_files|to_nice_yaml }}
 
   debug:
-    msg: "{{ msg.split('\n')[:-1] }}"
+    msg: "{{ msg.split('\n') }}"
 
 # EOF
 ...

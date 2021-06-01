@@ -11,8 +11,8 @@
 
 # nginx/nginx.conf
 - name: "conf: Configure {{ nginx_conf_path }}"
-  template:
-    src: "nginx.conf.j2"
+  ansible.builtin.template:
+    src: nginx.conf.j2
     dest: "{{ nginx_conf_path }}"
     owner: "{{ nginx_conf_owner }}"
     group: "{{ nginx_conf_group }}"
@@ -20,27 +20,13 @@
     backup: "{{ nginx_backup_conf }}"
     validate: nginx -t -c %s
   notify: reload nginx
-
-# nginx/conf.d (Option without vbotka.ansible_lib)
-# - name: "conf: Find config files in {{ nginx_server_conf_dir }}"
-#   find:
-#     paths: "{{ nginx_server_conf_dir }}"
-#     patterns: "{{ nginx_server_conf_file_patterns }}"
-#   delegate_to: localhost
-#   register: result
-# - name: "conf: List server files in {{ nginx_server_conf_dir }}"
-#   debug:
-#     msg: "{{ result | json_query('files[].path') }}"
-#   when: nginx_debug
-# - name: "conf: Configure servers in {{ nginx_conf_dir }}/nginx/conf.d"
-#   include_tasks: fn/conf-server.yml
-#   loop: "{{ result | json_query('files[].path') }}"
+  tags: nginx-conf-nginxconf
 
 # nginx/conf.d
 - name: "conf: Include variables from {{ nginx_server_conf_dir }}"
   block:
     - name: "conf: Set variables for al_include_confd_vars_list"
-      set_fact:
+      ansible.builtin.set_fact:
         al_include_confd_dir: "{{ nginx_server_conf_dir }}"
         al_include_confd_vars_list_type: "fname"
     - name: "conf: Include al_include_confd_vars_list"
@@ -48,20 +34,24 @@
         name: vbotka.ansible_lib
         tasks_from: al_include_confd_vars_list
     - name: "conf: Debug al_include_confd_vars_list"
-      when: nginx_debug|bool
-      debug:
+      ansible.builtin.debug:
         var: item
       loop: "{{ al_include_confd_vars_list }}"
+      loop_control:
+        label: "{{ item.fname }}"
+      when: nginx_debug|bool
 
 - name: "conf: Configure servers in {{ nginx_conf_dir }}/nginx/conf.d"
-  template:
-    src: "server2.conf.j2"
+  ansible.builtin.template:
+    src: server2.conf.j2
     dest: "{{ nginx_conf_dir }}/nginx/conf.d/{{ item.fname }}.conf"
     owner: "{{ nginx_conf_owner }}"
     group: "{{ nginx_conf_group }}"
     mode: "{{ nginx_conf_mode }}"
     backup: "{{ nginx_backup_conf }}"
   loop: "{{ al_include_confd_vars_list }}"
+  loop_control:
+    label: "{{ item.fname }}"
   notify: reload nginx
 
 # EOF
