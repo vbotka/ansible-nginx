@@ -27,10 +27,11 @@ Review defaults and examples in vars.
 shell> ansible webserver -e 'ansible_shell_type=csh ansible_shell_executable=/bin/csh' -a 'sudo pw usermod freebsd -s /bin/sh'
 ```
 
-2) Install role
+2) Install the role and collections
 
 ```
-shell> ansible-galaxy install vbotka.nginx
+shell> ansible-galaxy role install vbotka.nginx
+shell> ansible-galaxy collection install community.general
 ```
 
 3) Change variables

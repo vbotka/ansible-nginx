@@ -6,8 +6,8 @@
 
 - name: "conf:server: Configure {{ (item|basename|splitext)[0] }}
                       server in {{ nginx_conf_dir }}/nginx/conf.d"
-  template:
-    src: "server.conf.j2"
+  ansible.builtin.template:
+    src: server.conf.j2
     dest: "{{ nginx_conf_dir }}/nginx/conf.d/{{ item|basename }}"
     owner: "{{ nginx_conf_owner }}"
     group: "{{ nginx_conf_group }}"

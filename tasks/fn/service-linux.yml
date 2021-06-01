@@ -1,14 +1,14 @@
 ---
 
 - name: "service:linux: Enable and Start Nginx"
-  service:
+  ansible.builtin.service:
     name: "{{ nginx_service }}"
     state: started
     enabled: true
   when: nginx_enable|bool
 
 - name: "service:linux: Disable and Stop Nginx"
-  service:
+  ansible.builtin.service:
     name: "{{ nginx_service }}"
     state: stopped
     enabled: false
