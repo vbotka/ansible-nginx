@@ -1,11 +1,11 @@
 ---
 
 - name: "packages: Install BSD packages"
-  include_tasks: fn/packages-bsd.yml
+  ansible.builtin.include_tasks: fn/packages-bsd.yml
   when: ansible_distribution in nginx_supported_bsd_distributions
 
 - name: "packages: Install Linux packages"
-  include_tasks: fn/packages-linux.yml
+  ansible.builtin.include_tasks: fn/packages-linux.yml
   when: ansible_distribution in nginx_supported_linux_distributions or
         nginx_try_linux_defaults|bool
 

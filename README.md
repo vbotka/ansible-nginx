@@ -11,7 +11,14 @@ Feel free to [share your feedback and report issues](https://github.com/vbotka/a
 
 ## Requirements
 
-- [config_encoder_filters](https://galaxy.ansible.com/jtyr/config_encoder_filters)
+### Roles
+
+- [vbotka.ansible_lib](https://galaxy.ansible.com/vbotka/ansible_lib)
+- [jtyr.config_encoder_filters](https://galaxy.ansible.com/jtyr/config_encoder_filters)
+
+### Collections
+
+- community.general
 
 
 ## Variables

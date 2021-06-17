@@ -6,9 +6,8 @@
     path: "{{ nginx_conf_dir }}/nginx/sites-enabled"
   register: result
 
-- name: "conf:sites-enabled: Move sites-enabled (deprecated) to
-                             sites-enabled.orig"
-  command:
+- name: "conf:sites-enabled: Move sites-enabled (deprecated) to sites-enabled.orig"
+  ansible.builtin.command:
     cmd: >
       mv {{ nginx_conf_dir }}/nginx/sites-enabled
          {{ nginx_conf_dir }}/nginx/sites-enabled.orig
@@ -21,7 +20,6 @@
     state: link
     src: conf.d
     dest: "{{ nginx_conf_dir }}/nginx/sites-enabled"
-  when: not ansible_check_mode
 
 # EOF
 ...

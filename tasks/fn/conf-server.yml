@@ -1,7 +1,7 @@
 ---
 
 - name: "conf:server: Read {{ item|basename }} configuration"
-  include_vars:
+  ansible.builtin.include_vars:
     file: "{{ item }}"
 
 - name: "conf:server: Configure {{ (item|basename|splitext)[0] }}

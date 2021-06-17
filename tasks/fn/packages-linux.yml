@@ -1,7 +1,7 @@
 ---
 
 - name: "packages:linux: Update cache RH"      # Note 1
-  command:                                     # noqa 303
+  ansible.builtin.command:                     # noqa command-instead-of-module
     cmd: yum makecache
   when:
     - nginx_install_update_cache|bool
@@ -31,6 +31,8 @@
 #    yum module requires package name for cache update #33461
 #    https://github.com/ansible/ansible/issues/33461
 #    (closed as notabug)
+#    https://github.com/ansible/ansible/issues/33461#issuecomment-383222971
+#    "workaround for this by just using: command: yum makecache"
 #
 # 2) Module apt with update_cache:true is not idempotent
 

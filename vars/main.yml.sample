@@ -1,5 +1,5 @@
 ---
-# vars for vbotka.nginx
+# vars samples for vbotka.nginx
 
 # Variables in this file will be overwritten by OS specific variables
 # in vars/defaults and optionally, if created, by custom OS specific
