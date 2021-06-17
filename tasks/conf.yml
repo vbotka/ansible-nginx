@@ -2,11 +2,11 @@
 
 # files
 - name: "conf: Configure directories and files"
-  include_tasks: fn/conf-files.yml
+  ansible.builtin.include_tasks: fn/conf-files.yml
 
 # nginx/sites-enabled (deprecated)
 - name: "conf: Link conf.d to sites-enabled"
-  include_tasks: fn/conf-sites-enabled.yml
+  ansible.builtin.include_tasks: fn/conf-sites-enabled.yml
   when: nginx_link_sites_enabled|bool
 
 # nginx/nginx.conf
@@ -30,7 +30,7 @@
         al_include_confd_dir: "{{ nginx_server_conf_dir }}"
         al_include_confd_vars_list_type: "fname"
     - name: "conf: Include al_include_confd_vars_list"
-      include_role:
+      ansible.builtin.include_role:
         name: vbotka.ansible_lib
         tasks_from: al_include_confd_vars_list
     - name: "conf: Debug al_include_confd_vars_list"

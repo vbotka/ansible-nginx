@@ -1,11 +1,11 @@
 ---
 
 - name: "service: Service BSD"
-  include_tasks: fn/service-bsd.yml
+  ansible.builtin.include_tasks: fn/service-bsd.yml
   when: ansible_distribution in nginx_supported_bsd_distributions
 
 - name: "service: Service Linux"
-  include_tasks: fn/service-linux.yml
+  ansible.builtin.include_tasks: fn/service-linux.yml
   when: ansible_distribution in nginx_supported_linux_distributions or
         nginx_try_linux_defaults|bool
 

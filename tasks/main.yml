@@ -1,24 +1,30 @@
 ---
 # tasks for vbotka.nginx
 
-- import_tasks: assert.yml
+- name: Import assert.yml
+  ansible.builtin.import_tasks: assert.yml
   tags: [nginx-assert, always]
 
-- import_tasks: vars.yml
+- name: Import vars.yml
+  ansible.builtin.import_tasks: vars.yml
   tags: [nginx-vars, always]
 
-- import_tasks: debug.yml
+- name: Import debug.yml
+  ansible.builtin.import_tasks: debug.yml
   when: nginx_debug|bool
   tags: [nginx-debug, always]
 
-- import_tasks: packages.yml
+- name: Import packages.yml
+  ansible.builtin.import_tasks: packages.yml
   when: nginx_install|bool
   tags: nginx-packages
 
-- import_tasks: conf.yml
+- name: Import conf.yml
+  ansible.builtin.import_tasks: conf.yml
   tags: nginx-conf
 
-- import_tasks: service.yml
+- name: Import service.yml
+  ansible.builtin.import_tasks: service.yml
   tags: nginx-service
 
 # EOF

@@ -9,7 +9,7 @@
          nginx_install_delay [{{ nginx_install_delay }}]
          nginx_packages
          {{ nginx_packages|to_nice_yaml }}
-  debug:
+  ansible.builtin.debug:
     msg: "{{ msg.split('\n') }}"
   when: nginx_debug|bool
 
