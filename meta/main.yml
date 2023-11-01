@@ -4,19 +4,19 @@ galaxy_info:
   role_name: nginx
   author: Vladimir Botka
   description: Install and configure Nginx.
-  company: https://botka.link
+  company: https://botka.info
   github_branch: master
   license: BSD
-  min_ansible_version: "2.10"
+  min_ansible_version: "2.14"
   platforms:
     - name: FreeBSD
       versions:
-        - 11.3
-        - 12.1
+        - 12.4
+        - 13.2
     - name: Ubuntu
       versions:
-        - bionic
         - focal
+        - jammy
   galaxy_tags:
     - freebsd
     - ubuntu
